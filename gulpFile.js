@@ -13,7 +13,7 @@ gulp.task('build', function() {
   .transform(babelify)
   .bundle()
   .on('error', util.log.bind(util, 'Browserify Error'))
-  .pipe(source('pytask.js'))
+  .pipe(source('cplustask.js'))
   .pipe(buffer())
   .pipe(sourcemaps.init({loadMaps: true}))
   .pipe(uglify({ mangle: true }))

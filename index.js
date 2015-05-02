@@ -5,7 +5,7 @@ import run from './src/run_code';
 
 let codeCm = codemirror.fromTextArea($('[name=script]')[0], {
   lineNumbers: true,
-  mode: 'clike'
+  mode: 'c++11'
 });
 let outCm = codemirror.fromTextArea($('[name=out]')[0], {});
 
@@ -17,6 +17,11 @@ $('form').on('submit', function(e) {
       outCm.setValue(out);
     })
     .fail(function(data) {
-      outCm.setValue(data.responseJSON.message.replace('Command failed: /bin/sh -c python -c "' + codeCm.getValue() + '"', ''));
+      window.__err = data.responseJSON.message;
+      outCm.setValue(data.responseJSON.message
+          .replace('Command failed: /bin/sh -c ', '')
+          .replace(/\/tmp\/(.+\.cpp)/g, 'source.cpp')
+          .replace(/\/tmp\/(.+\.out)/g, 'a.out')
+      );
     });
 });
