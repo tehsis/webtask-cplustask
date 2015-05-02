@@ -12,7 +12,7 @@ return function(context, cb) {
       cp.exec('g++ ' + input + ' -o ' + output , function(err) {
         if (err) return cb(err);
         fs.readFile(output, function(err, data) {
-          cb(err, data);
+          cb(err, data.toString());
         });
       });
     });
