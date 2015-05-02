@@ -11,7 +11,9 @@ return function(context, cb) {
       if (err) return cb(err);
       cp.exec('g++ ' + input + ' -o ' + output , function(err) {
         if (err) return cb(err);
-        cp.exec(output, cb);
+        cp.exec(output, function(err, out) {
+          cb(err, out);
+        });
       });
     });
   });
