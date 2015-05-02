@@ -1,4 +1,4 @@
-# [Pytask](https://tehsis.github.io/webtask-cplustask)
+# [Cplustask](https://tehsis.github.io/webtask-cplustask)
 
 ![Alt pytask example](https://tehsis.github.io/webtask-cplustask/src/example/example.gif)
 
