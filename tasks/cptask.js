@@ -11,9 +11,7 @@ return function(context, cb) {
       if (err) return cb(err);
       cp.exec('g++ ' + input + ' -o ' + output , function(err) {
         if (err) return cb(err);
-        fs.readFile(output, function(err, data) {
-          cb(err, data.toString());
-        });
+        cp.exec(output, cb);
       });
     });
   });
