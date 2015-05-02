@@ -2,11 +2,13 @@ import $ from 'jquery';
 import codemirror from 'codemirror';
 import 'codemirror/mode/clike/clike';
 import run from './src/run_code';
+import example from './src/example/helloweb.cpp';
 
 let codeCm = codemirror.fromTextArea($('[name=script]')[0], {
   lineNumbers: true,
   mode: 'c++11'
 });
+codeCm.setValue(example);
 let outCm = codemirror.fromTextArea($('[name=out]')[0], {});
 
 
